@@ -248,3 +248,4 @@ $RECYCLE.BIN/
 
 # Custom
 *.docx
+**/*.old

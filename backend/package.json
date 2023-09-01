@@ -4,7 +4,7 @@
   "description": "Backend for MOTI People Relations Service",
   "author": "Jaeyong Shim <hello@beerjoa.dev>",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prepare": "cd .. && husky install backend/.husky",
     "build": "nest build",
