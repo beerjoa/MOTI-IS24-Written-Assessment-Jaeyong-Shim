@@ -1,0 +1,26 @@
+version: "3.9"
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
+
+volumes:
+  db_data:
+    driver: local
+
+services:
+  db:
+    container_name: MOTI-PRS-DB
+    image: ${DB_SYSTEM}:${DB_VERSION}
+    restart: always
+    ports:
+      - ${DB_EXTERNAL_PORT}:${DB_PORT}
+    volumes:
+      - db_data:${DB_METADATA_PATH}
+    environment:
+      - HOST=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DEFAULT_DB}
+      - DEFAULT_DATABASE=${DB_DEFAULT_DB}
+      - LISTEN_ADDRESSES="*"
