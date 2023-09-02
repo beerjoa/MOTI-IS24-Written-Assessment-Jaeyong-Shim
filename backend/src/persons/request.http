@@ -1,0 +1,13 @@
+### Create a new user
+POST http://localhost:3000/persons
+content-type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "description": "A person",
+    "date_of_birth": "2023-09-02T20:44:19.818Z",
+    "gender": "M",
+    "email": "test@testcom",
+    "mobile_number": "1234567890",
+}
