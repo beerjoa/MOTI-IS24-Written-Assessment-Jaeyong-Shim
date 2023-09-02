@@ -1,0 +1,21 @@
+version: "3.9"
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
+
+volumes:
+  frontend_data:
+    driver: local
+
+services:
+  frontend:
+    container_name: MOTI-PRS-Frontend
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+      target: base
+    command: ["npm", "run", "start:dev"]
+    restart: always
+    ports:
+      - 4444:3000
