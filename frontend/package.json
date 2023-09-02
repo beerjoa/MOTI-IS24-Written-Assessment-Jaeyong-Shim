@@ -1,7 +1,7 @@
 {
   "name": "moti-prs-frontend",
   "version": "0.0.1",
-  "description": "Frontend for MOTI People Relations Service",
+  "description": "Frontend for MOTI Person Relations Service",
   "author": "Jaeyong Shim <hello@beerjoa.dev>",
   "private": true,
   "license": "MIT",
