@@ -1,6 +1,6 @@
 # MOTI-PRS-Backend
 
-Backend for MOTI People Relations Service
+Backend for MOTI Person Relations Service
 
 ## Description
 

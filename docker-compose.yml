@@ -1,0 +1,53 @@
+version: "3.9"
+
+networks:
+  default:
+    name: MOTI-PRS-net
+
+volumes:
+  db_data:
+    driver: local
+  backend_data:
+    driver: local
+  frontend_data:
+    driver: local
+
+services:
+  database:
+    container_name: MOTI-PRS-DB
+    image: postgres:15.4-alpine
+    restart: on-failure
+    ports:
+      - 45432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - DEFAULT_DATABASE=postgres
+      - LISTEN_ADDRESSES="*"
+
+  backend:
+    container_name: MOTI-PRS-Backend
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+      target: base
+    volumes:
+      - ./backend/src:/data/app/src
+    command: ["npm", "run", "start:dev"]
+    restart: on-failure
+    ports:
+      - 3333:3000
+
+  frontend:
+    container_name: MOTI-PRS-Frontend
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+      target: base
+    command: ["npm", "run", "start:dev"]
+    restart: on-failure
+    ports:
+      - 4444:3000

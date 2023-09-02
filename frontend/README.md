@@ -1,6 +1,6 @@
 # MOTI-PRS-Frontend
 
-Frontend for MOTI People Relations Service
+Frontend for MOTI Person Relations Service
 
 ## Description
 
