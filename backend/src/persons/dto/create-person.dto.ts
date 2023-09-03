@@ -1,4 +1,5 @@
-import { IsString, IsDate, IsPhoneNumber } from 'class-validator';
+import { IsString, IsPhoneNumber, IsDateString } from 'class-validator';
+
 import { TGender } from '../entities/person.entity';
 
 export class CreatePersonDto {
@@ -11,7 +12,7 @@ export class CreatePersonDto {
   @IsString()
   description: string;
 
-  @IsDate()
+  @IsDateString()
   date_of_birth: Date;
 
   @IsString()

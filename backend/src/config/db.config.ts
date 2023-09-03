@@ -1,10 +1,12 @@
-// import { registerAs } from '@nestjs/config';
-
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import {
   TypeOrmModuleAsyncOptions,
   TypeOrmModuleOptions,
 } from '@nestjs/typeorm';
+
+import { PersonEntity } from '../persons/entities/person.entity';
+import { CreatePersonTable1693679459799 } from '../migrations/1693679459799-create-persons-table';
+import { CreateRelationshipsTable1693681623730 } from '../migrations/1693681623730-create-relationships-table';
 
 export default class DBConfig {
   static getDBConfig(configService: ConfigService): TypeOrmModuleOptions {
@@ -15,9 +17,12 @@ export default class DBConfig {
       username: configService.get('DATABASE_USER') || 'postgres',
       password: configService.get('DATABASE_PASSWORD') || 'postgres',
       database: configService.get('DATABASE_NAME') || 'postgres',
-      entities: [`${__dirname}/**/*.entity{.ts,.js}`],
+      entities: [PersonEntity],
       synchronize: process.env.NODE_ENV === 'development',
-      migrations: [`${__dirname}/**/migrations/*{.ts,.js}`],
+      migrations: [
+        CreatePersonTable1693679459799,
+        CreateRelationshipsTable1693681623730,
+      ],
       migrationsTableName: 'migrations_typeorm',
     };
   }
