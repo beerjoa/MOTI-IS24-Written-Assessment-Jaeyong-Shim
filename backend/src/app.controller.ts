@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
 import { ConfigService } from '@nestjs/config';
+
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
@@ -16,7 +17,6 @@ export class AppController {
 
   @Get('env')
   getEnv(): unknown {
-    console.log(process.env.NODE_ENV);
     return this.configService;
   }
 }
