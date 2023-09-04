@@ -42,8 +42,6 @@ services:
       context: ./backend
       dockerfile: ../docker/backend.Dockerfile
       target: base
-    volumes:
-      - ./backend/src:/data/app/src
     command: ["npm", "run", "start:stage"]
     restart: on-failure
     ports:
