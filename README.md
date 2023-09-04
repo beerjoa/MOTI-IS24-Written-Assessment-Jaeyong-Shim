@@ -108,6 +108,9 @@ It is packaged with Docker Compose, so you need to install the software below.
 ### Build
 
 ```bash
+# before build, you need to set the environment variables for docker compose
+$ cp .env.example .env
+
 # build the services
 $ docker compose build
 ```
