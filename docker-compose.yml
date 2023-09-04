@@ -1,0 +1,65 @@
+version: "3.9"
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
+
+volumes:
+  db_data:
+    driver: local
+  backend_data:
+    driver: local
+  frontend_data:
+    driver: local
+
+services:
+  database:
+    container_name: MOTI-PRS-DB
+    build:
+      context: ./database
+      dockerfile: ../docker/database.Dockerfile
+    restart: on-failure
+    ports:
+      - ${POSTGRES_EXTERNAL_PORT}:${POSTGRES_PORT}
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - DEFAULT_DATABASE=postgres
+      - LISTEN_ADDRESSES="*"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  backend:
+    container_name: MOTI-PRS-Backend
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+      target: base
+    volumes:
+      - ./backend/src:/data/app/src
+    command: ["npm", "run", "start:stage"]
+    restart: on-failure
+    ports:
+      - 43000:3000
+    depends_on:
+      - database
+
+  frontend:
+    container_name: MOTI-PRS-Frontend
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+      target: base
+    command: ["npm", "run", "start:stage"]
+    restart: on-failure
+    ports:
+      - 44000:3000
+    depends_on:
+      - backend

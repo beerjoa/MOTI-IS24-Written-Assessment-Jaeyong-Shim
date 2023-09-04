@@ -1,0 +1,48 @@
+@baseUrl = http://localhost:43000/api
+@personId = 8712bcc6-fe58-4395-870e-b2a854ca0b43
+
+### Create a new person
+POST {{baseUrl}}/persons
+content-type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "description": "A person",
+    "date_of_birth": "2023-09-02 20:44:19.818Z",
+    "gender": "M",
+    "email": "test@testcom",
+    "mobile_number": "+1 (234) 567-8901"
+}
+
+### Get Person List
+GET {{baseUrl}}/persons
+content-type: application/json
+
+### Get Person by ID
+GET {{baseUrl}}/persons/{{personId}}
+content-type: application/json
+
+
+### Get Person Relationships
+GET {{baseUrl}}/persons/{{personId}}/relationships
+content-type: application/json
+
+### Update Person
+PUT {{baseUrl}}/persons/{{personId}}
+content-type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe2",
+    "description": "A person",
+    "date_of_birth": "2023-09-02 20:44:19.818Z",
+    "gender": "M",
+    "email": "test@testcom",
+    "mobile_number": "+1 (234) 567-8901"
+}
+
+
+### Delete Person
+DELETE {{baseUrl}}/persons/{{personId}}
+content-type: application/json
