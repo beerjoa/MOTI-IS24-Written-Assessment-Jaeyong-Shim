@@ -3,7 +3,7 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 export class CreatePersonTable1693679459799 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     // this is needed to generate uuids
-    await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
+    await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 
     await queryRunner.query(`
       CREATE TABLE persons (

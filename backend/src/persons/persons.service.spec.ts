@@ -5,7 +5,7 @@ import { ConflictException, NotFoundException } from '@nestjs/common';
 import { PersonsService } from './persons.service';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
-import { PersonEntity } from './entities/person.entity';
+import { PersonEntity } from '../entities';
 
 describe('PersonsService', () => {
   let service: PersonsService;
@@ -23,6 +23,8 @@ describe('PersonsService', () => {
     ...createPersonDto,
     created_at: expect.any(Date),
     updated_at: expect.any(Date),
+    relationships: [],
+    related_relationships: [],
   };
   const updatePersonDto: UpdatePersonDto = {
     first_name: 'Dohn',
@@ -147,6 +149,8 @@ describe('PersonsService', () => {
         ...updatePersonDto,
         created_at: expect.any(Date),
         updated_at: expect.any(Date),
+        relationships: [],
+        related_relationships: [],
       };
 
       beforeEach(() => {

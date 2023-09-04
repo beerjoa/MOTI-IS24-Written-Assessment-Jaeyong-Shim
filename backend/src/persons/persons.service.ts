@@ -8,7 +8,7 @@ import { Repository } from 'typeorm';
 
 import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
-import { PersonEntity } from './entities/person.entity';
+import { PersonEntity } from '../entities';
 
 @Injectable()
 export class PersonsService {
@@ -35,6 +35,14 @@ export class PersonsService {
     return persons;
   }
 
+  async findPersonRelationships(person_id: string): Promise<PersonEntity> {
+    const person = await this.personRepository.findOne({
+      where: { person_id },
+      relations: ['relationships'],
+    });
+
+    return person;
+  }
   async findPerson(person_id: string): Promise<PersonEntity> {
     const person = await this.personRepository.findOne({
       where: { person_id },
