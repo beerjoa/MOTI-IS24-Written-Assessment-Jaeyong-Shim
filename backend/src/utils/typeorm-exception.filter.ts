@@ -40,6 +40,11 @@ export class TypeORMExceptionFilter implements ExceptionFilter {
         statusCode: HttpStatus.BAD_REQUEST,
         message: 'Invalid UUID format',
       };
+    } else if (error.code === '23503') {
+      this.exceptionResponse = {
+        statusCode: HttpStatus.NOT_FOUND,
+        message: 'Target not found',
+      };
     } else {
       this.exceptionResponse.message = error.message;
     }

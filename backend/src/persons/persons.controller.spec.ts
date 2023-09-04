@@ -4,7 +4,7 @@ import { NotFoundException } from '@nestjs/common';
 import { PersonsController } from './persons.controller';
 import { PersonsService } from './persons.service';
 import { CreatePersonDto } from './dto/create-person.dto';
-import { PersonEntity } from './entities/person.entity';
+import { PersonEntity } from '../entities';
 import { UpdatePersonDto } from './dto/update-person.dto';
 
 describe('PersonsController', () => {
@@ -30,6 +30,8 @@ describe('PersonsController', () => {
     ...createPersonDto,
     created_at: expect.any(Date),
     updated_at: expect.any(Date),
+    relationships: [],
+    related_relationships: [],
   };
 
   const notFoundException = new NotFoundException('Person not found');

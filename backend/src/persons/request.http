@@ -1,4 +1,5 @@
-@baseUrl = http://localhost:3000
+@baseUrl = http://localhost:3333/api
+@personId = 8712bcc6-fe58-4395-870e-b2a854ca0b43
 
 ### Create a new person
 POST {{baseUrl}}/persons
@@ -19,11 +20,16 @@ GET {{baseUrl}}/persons
 content-type: application/json
 
 ### Get Person by ID
-GET {{baseUrl}}/persons/ab3c19be-7ea0-451a-98a8-4ce1415882b0
+GET {{baseUrl}}/persons/{{personId}}
+content-type: application/json
+
+
+### Get Person Relationships
+GET {{baseUrl}}/persons/{{personId}}/relationships
 content-type: application/json
 
 ### Update Person
-PUT {{baseUrl}}/persons/ab3c19be-7ea0-451a-98a8-4ce1415882b0
+PUT {{baseUrl}}/persons/{{personId}}
 content-type: application/json
 
 {
@@ -38,5 +44,5 @@ content-type: application/json
 
 
 ### Delete Person
-DELETE {{baseUrl}}/persons/ab3c19be-7ea0-451a-98a8-4ce1415882b0
+DELETE {{baseUrl}}/persons/{{personId}}
 content-type: application/json

@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:3333/api
+@relationshipId = 4c37f5c5-e3e0-4188-9e26-9b4b87ad20f7
+
+### Create a new relationship
+POST {{baseUrl}}/relationships
+content-type: application/json
+
+{
+    "relationship_type": "parent",
+    "person_id": "8712bcc6-fe58-4395-870e-b2a854ca0b43",
+    "related_person_id": "35abeabf-386e-430a-af3b-dc7918b81cc8"
+}
+
+### Get relationship by id
+GET {{baseUrl}}/relationships/{{relationshipId}}
+content-type: application/json
+
+
+### Get relationship by id
+PUT {{baseUrl}}/relationships/{{relationshipId}}
+content-type: application/json
+
+{
+    "relationship_type": "friend",
+    "person_id": "8712bcc6-fe58-4395-870e-b2a854ca0b43",
+    "related_person_id": "35abeabf-386e-430a-af3b-dc7918b81cc8"
+}
+
+### Delete relationship by id
+DELETE {{baseUrl}}/relationships/{{relationshipId}}
+content-type: application/json
