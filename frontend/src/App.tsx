@@ -1,12 +1,15 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+
+import Flow from './components/Flow';
 import NotFound from './pages/NotFound';
+import styles from './App.module.css';
 
 export function App() {
   return (
-    <div>
+    <div className={styles.container}>
+      <header className={styles.header}>React Flow - Vite</header>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Flow />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

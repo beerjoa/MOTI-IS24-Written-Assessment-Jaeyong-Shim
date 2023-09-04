@@ -20,12 +20,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
   "include": [
     ".eslintrc.cjs",
+    ".prettierrc.cjs",
     "vite.config.ts",
-    "src"
+    "src",
   ],
   "references": [
     {

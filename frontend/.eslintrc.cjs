@@ -32,5 +32,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/button-has-type': 'off',
+    'class-methods-use-this': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
   },
 };
