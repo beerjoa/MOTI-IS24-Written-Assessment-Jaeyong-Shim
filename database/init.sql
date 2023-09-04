@@ -1,3 +1,5 @@
+-- Description: This file contains the SQL statements for creating the database tables
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- CREATE PERSONS TABLE

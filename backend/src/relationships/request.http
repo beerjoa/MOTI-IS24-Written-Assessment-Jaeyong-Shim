@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3333/api
+@baseUrl = http://localhost:43000/api
 @relationshipId = 4c37f5c5-e3e0-4188-9e26-9b4b87ad20f7
 
 ### Create a new relationship

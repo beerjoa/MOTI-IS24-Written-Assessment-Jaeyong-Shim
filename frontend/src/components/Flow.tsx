@@ -67,19 +67,6 @@ function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  // useEffect(() => {
-  //   apiService.getPersons().then((persons) => {
-  //     const newNodes = persons.map((person) => {
-  //       return {
-  //         id: person.person_id,
-  //         data: { label: person.first_name },
-  //         position: { x: Math.random() * 500, y: Math.random() * 500 }, // Adjust position as needed
-  //       };
-  //     });
-  //     setNodes(newNodes);
-  //   });
-  // }, [setNodes]);
-
   console.log(edges);
   const onConnect = useCallback(
     (params: Connection | Edge) => {

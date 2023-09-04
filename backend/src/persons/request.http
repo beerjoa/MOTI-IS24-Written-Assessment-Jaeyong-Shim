@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3333/api
+@baseUrl = http://localhost:43000/api
 @personId = 8712bcc6-fe58-4395-870e-b2a854ca0b43
 
 ### Create a new person

@@ -1,38 +1,27 @@
-# MOTI-PRS-Frontend
+# MOTI-PRS-Frontend (WIP⚒️)
 
-Frontend for MOTI Person Relations Service
+<img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=TypeScript&logoColor=white" />
+<img alt="React" src="https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=React&logoColor=white" />
+<img alt="Vite" src="https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=Vite&logoColor=white" />
 
-## Description
+This is a Frontend application for MOTI Person Relations Service. \
+It is written in TypeScript and uses React and Vite.
 
-Frontend description
+## Features
 
-## Installation
+### Developer experience
 
-```bash
-$ npm install
-```
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Jest](https://jestjs.io/)
+- [ESLint](https://eslint.org/)
 
-## Running the app
+### Frontend features
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-```
+- single page application (SPA)
+- component-based architecture
 
 ## License
 
-This repo is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE)
